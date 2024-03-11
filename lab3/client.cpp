@@ -48,13 +48,10 @@ int main(){
         char buffer[1024];
         while (true) {
             int bytesReceived = recv(s, buffer, sizeof(buffer) - 1, 0); 
-            cout << "LOOk: " << bytesReceived << endl;
             if (bytesReceived <= 0) {
                 break;
             }
 
-            cout << "im herereeee\n";
-            
             buffer[bytesReceived] = '\0'; 
 
             if (strstr(buffer, "stop") != nullptr) {
