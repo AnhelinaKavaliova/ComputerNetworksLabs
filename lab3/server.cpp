@@ -47,11 +47,20 @@ DWORD WINAPI ThreadFunc(LPVOID client_socket) {
             }
         }
 
+        int flag = 0;
+
         for (int i = 0; i < components.size(); ++i) {
             if (components[i].deliveryDate == buf && components[i].cost > min) {
                 string componentInfo = components[i].supplier + ", $" + to_string(components[i].cost) + ", " + components[i].deliveryDate + '\n';
                 send(s2, componentInfo.c_str(), componentInfo.length(), 0);
+                flag++;
             }
+        }
+
+        if(!flag){
+            string nothing = "Wasn`t there that day";
+            send(s2, nothing.c_str(), nothing.length(), 0);
+
         }
         string endSignal = "stop";
         send(s2, endSignal.c_str(), endSignal.length(), 0);
