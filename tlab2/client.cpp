@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    // Инициализация WinSock
+    // инициализация WinSock
     WORD wVersionRequested;
     WSADATA wsaData;
     wVersionRequested = MAKEWORD(2,2);

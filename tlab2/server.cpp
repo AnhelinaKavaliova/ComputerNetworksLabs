@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-    // Инициализация WinSock
+    // инициализация WinSock
     WORD wVersionRequested;
     WSADATA wsaData;
     wVersionRequested = MAKEWORD(2, 2);
@@ -49,10 +49,10 @@ int main() {
                     for (int j = i; j < len; ++j) {
                         buf[j] = buf[j + 1];
                     }
-                    --i; // Чтобы проверить символ на этой же позиции заново
+                    --i; 
                 }
             }
-            buf[len - removed_digits] = '\0'; // Установка новой конечной строки
+            buf[len - removed_digits] = '\0'; 
             cout << "Removed digits: " << removed_digits << endl;
         } else {
             cout << "String length is not greater than 15. No digits removed." << endl;
